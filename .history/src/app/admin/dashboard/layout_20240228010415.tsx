@@ -1,0 +1,3 @@
+
+
+const AdminLayout = ({ children} : chil)
