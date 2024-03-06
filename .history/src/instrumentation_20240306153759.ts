@@ -20,6 +20,7 @@ export const register = async () => {
                     });
                     const page = await browser.newPage();
                     console.log("before if ", job.data);
+
                     if (job.data.jobType.type === "location") {
                         console.log("Connected! Navigation to " + job.data.url);
                         await page.goto(job.data.url);
@@ -42,6 +43,7 @@ export const register = async () => {
                     await browser?.close();
                     console.log("Browser closed successfully.");
                 }
+                console.log({ job });
             },
             {
                 connection,

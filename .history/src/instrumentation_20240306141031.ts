@@ -19,7 +19,7 @@ export const register = async () => {
                         browserWSEndpoint: SBR_WS_ENDPOINT,
                     });
                     const page = await browser.newPage();
-                    console.log("before if ", job.data);
+
                     if (job.data.jobType.type === "location") {
                         console.log("Connected! Navigation to " + job.data.url);
                         await page.goto(job.data.url);

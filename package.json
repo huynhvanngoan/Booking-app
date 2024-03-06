@@ -15,7 +15,6 @@
         "@stripe/stripe-js": "^3.0.6",
         "@types/crypto-js": "^4.2.2",
         "axios": "^1.6.7",
-        "bull": "^4.12.2",
         "bullmq": "^5.4.1",
         "chart.js": "^4.4.2",
         "crypto-js": "^4.2.0",

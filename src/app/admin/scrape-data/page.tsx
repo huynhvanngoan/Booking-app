@@ -25,7 +25,7 @@ const ScrapeData = () => {
     const [jobs, setJobs] = useState([]);
     const searchCites = async (searchString: string) => {
         const response = await axios.get(
-            `https://secure.geonames.org/searchJSON?q=${searchString}&maxRows=5&username=kishan&style=SHORT`
+            `http://api.geonames.org/searchJSON?q=${searchString}&maxRows=5&username=huynhngoan&style=SHORT`
         );
         const parsed = response.data.geonames;
         setCities(parsed?.map((city: { name: string }) => city.name) ?? []);
@@ -33,11 +33,13 @@ const ScrapeData = () => {
 
     const startScraping = async () => {
         await apiClient.post(ADMIN_API_ROUTES.CREATE_JOB, {
-            url: `https://packages.yatra.com/holidays/intl/search.htm?destination=${selectedCity}`,
+            url:
+                "https://packages.yatra.com/holidays/intl/search.htm?destination=" +
+                selectedCity,
             jobType: { type: "location" },
         });
     };
-    
+
     useEffect(() => {
         const getData = async () => {
             const data = await apiClient.get(ADMIN_API_ROUTES.JOB_DETAILS);

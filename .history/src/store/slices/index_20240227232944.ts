@@ -1,5 +1,0 @@
-
-
-export interface AuthSlice {
-    userInfo
-}
