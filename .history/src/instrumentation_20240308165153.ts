@@ -8,19 +8,21 @@ export const register = async () => {
         const puppeteer = await import("puppeteer");
 
         const SBR_WS_ENDPOINT =
-            "wss://brd-customer-hl_a89995fa-zone-booking_app:wnkj53erv86p@brd.superproxy.io:9222";
-
+            "wss://brd-customer-hl_f144929c-zone-booking:ccjpc4omyqnf@brd.superproxy.io:9222";
         new Worker(
             "importQueue",
             async (job) => {
-                let browser: undefined | Browser = undefined;
+                console.log(job.data.jobType.type);
+                console.log(
+                    "Connecting to Scraping Browser...",
+                    SBR_WS_ENDPOINT
+                );
+                const browser = await puppeteer.connect({
+                    browserWSEndpoint: SBR_WS_ENDPOINT,
+                });
                 try {
-                    browser = await puppeteer.connect({
-                        browserWSEndpoint: SBR_WS_ENDPOINT,
-                    });
                     const page = await browser.newPage();
-                    console.log("before if ", job.data);
-
+                    console.log("page", page);
                     if (job.data.jobType.type === "location") {
                         console.log("Connected! Navigation to " + job.data.url);
                         await page.goto(job.data.url);
@@ -40,7 +42,7 @@ export const register = async () => {
                         },
                     });
                 } finally {
-                    await browser?.close();
+                    // await browser?.close();
                     console.log("Browser closed successfully.");
                 }
             },
