@@ -52,7 +52,7 @@ const Trip = ({ params: { tripId } }: { params: { tripId: string } }) => {
         <div>
             {tripData && (
                 <>
-                <Images images= {tripData.images}/>
+                <Images images=(images)/>
                     <div className="grid grid-cols-3 my-10 gap-10 mx-32">
                         <div className="col-span-2">
                             <div className="bg-w px-5 py-5 rounded-lg flex flex-col gap-10 text-blue-text-title">

@@ -70,7 +70,7 @@ const Navbar = ({ onOpen }: { onOpen: () => void }) => {
                         />
                         <span className="text-xl uppercase font-medium italic">
                             <span className={ArchitectsDaughter.className}>
-                                Gre`s Booking
+                                Gre
                             </span>
                         </span>
                     </div>

@@ -16,8 +16,6 @@ import {
     FaTwitter,
 } from "react-icons/fa";
 import { IoPerson, IoPricetag } from "react-icons/io5";
-import { Itinenary } from "./components/itinenary";
-import { Images } from "./components/images";
 
 const Trip = ({ params: { tripId } }: { params: { tripId: string } }) => {
     const router = useRouter();
@@ -39,20 +37,14 @@ const Trip = ({ params: { tripId } }: { params: { tripId: string } }) => {
         }
     });
 
-    const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newDate = event.target.value
-            ? new Date(event.target.value)
-            : new Date();
-        setDate(newDate);
-    };
+    const handleDateChange = () => {
 
-    const bookTrip = () => {};
+    }
 
     return (
         <div>
             {tripData && (
                 <>
-                <Images images= {tripData.images}/>
                     <div className="grid grid-cols-3 my-10 gap-10 mx-32">
                         <div className="col-span-2">
                             <div className="bg-w px-5 py-5 rounded-lg flex flex-col gap-10 text-blue-text-title">
@@ -171,9 +163,7 @@ const Trip = ({ params: { tripId } }: { params: { tripId: string } }) => {
                                             Itinerary
                                         </strong>
                                     </h3>
-                                    <div>
-                                        <Itinenary data={tripData.detailedIntineary} />
-                                    </div>
+                                    <div></div>
                                 </div>
                                 <div className="p-10 bg-[#f5f5fe] rounded-lg border border-gray-200 gap-3 flex flex-col">
                                     <h3 className="text-2xl">
@@ -258,14 +248,7 @@ const Trip = ({ params: { tripId } }: { params: { tripId: string } }) => {
                                     <span>{tripData.price + 3300}</span>
                                 </li>
                             </ul>
-                            <Button
-                                color="primary"
-                                size="lg"
-                                className="rounded-full"
-                                onClick={() => userInfo && bookTrip()}
-                            >
-                                {userInfo ? "Book Trip" : "Login to Book Trip"}
-                            </Button>
+                            <Button color="primary" size="lg" className="rounded-full" onClick={() => }
                         </div>
                     </div>
                 </>
