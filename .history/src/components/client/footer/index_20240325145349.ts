@@ -1,3 +1,0 @@
-import F
-
-export { Footer }
