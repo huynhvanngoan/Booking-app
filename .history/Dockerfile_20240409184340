@@ -1,0 +1,17 @@
+
+FROM node:21
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY prisma/schema.prisma ./prisma/
+
+RUN npx prisma generate 
+
+COPY . .  
+
+RUN npx prisma db push
+''
